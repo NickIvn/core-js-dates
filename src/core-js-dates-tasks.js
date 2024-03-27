@@ -231,21 +231,21 @@ function getCountWeekendsInMonth(month, year) {
  * Date(2024, 0, 31) => 5
  * Date(2024, 1, 23) => 8
  */
-function getWeekNumberByDate(/* date */) {
-  // const year = date.getFullYear();
-  // const periodStart = new Date(year, 0, 1);
-  // const weekDay = periodStart.getDay();
-  // let difference;
-  // if (weekDay === 1) {
-  //   difference = Math.floor((date - periodStart) / 86400000) + 1;
-  //   return Math.ceil(difference / 7);
-  // }
-  // difference =
-  //   Math.floor(
-  //     (date - periodStart - (weekDay === 0 ? 1 : 8 - weekDay) * 86400000) /
-  //       86400000
-  //   ) + 1;
-  // return Math.ceil(difference / 7 + 1);
+function getWeekNumberByDate(date) {
+  const year = date.getFullYear();
+  const periodStart = new Date(year, 0, 1);
+  const weekDay = periodStart.getDay();
+  let difference;
+  if (weekDay === 1) {
+    difference = Math.floor((date - periodStart) / 86400000) + 1;
+    return Math.ceil(difference / 7);
+  }
+  difference =
+    Math.floor(
+      (date - periodStart - (weekDay === 0 ? 1 : 8 - weekDay) * 86400000) /
+        86400000
+    ) + 1;
+  return Math.ceil(difference / 7 + 1);
 }
 
 /**
